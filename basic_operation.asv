@@ -1,0 +1,109 @@
+%{
+%Q1
+figure
+t1 = 0:0.01:10;
+y1 = 3 - exp(-t1);
+plot(t1,y1)
+figure
+stem(t1,y1);
+t2 = 0:0.01:3;
+y2 = exp(-t2).*sin(2*pi*t2);
+figure
+plot(t2,y2);
+figure
+stem(t2,y2);
+t3 = -3:0.01:3;
+y3 = sin(3*pi*t3)./(3*pi*t3);
+y3(abs(t3)<1e-10) = 1;
+figure
+plot(t3,y3)
+figure
+stem(t3,y3)
+k = 0:1:40;
+y4 = exp(-k/5);
+subplot(1,2,1);
+plot(k,y4)
+subplot(1,2,2);
+stem(k,y4);
+%}
+
+%Q2
+%{
+A1 = [2 3 1;1 1 1; 3 -1 -1];
+b1 = [11;6;-2];
+x = inv(A1)*b1;
+disp('方程1的解为');
+disp(x)
+A2 = [1 1 0;0 1 1;1 0 1];
+b2 = [27;33;30];
+x2 = A2\b2;
+disp('方程2的解为');
+disp(x2)
+%}
+
+%Q3
+%{
+k = -30:30;
+L = 3;
+y1 = k.*sin(k/3).*stepfun(k,L);
+subplot(1,2,1);
+stem(k,y1,'LineWidth',1);
+y2 = (-1).^k + (0.5).^k.*stepfun(k,0);
+subplot(1,2,2);
+stem(k,y2,'LineWidth',1)
+%}
+
+%Q4
+%{
+y1 = [1;1;1;1];
+y2 = [3;2;1];
+y3 = conv(y1,y2);
+stem(y3);
+
+figure
+k = -20:20;
+f1 = stepfun(k,0);
+f2 = (-0.5).^k.*stepfun(k,0);
+f3 = conv(f1,f2);
+stem(f3);
+%}
+
+%Q5
+%{
+t = -3*pi:0.01:3*pi;
+y1 = sin(t)./t;
+y2 = sin(2*t)./(2*t);
+y3 = sin(3*t)./(3*t);
+%y1(abs(t)<1e-10) = 1;
+plot(t,y1,'Color','r','LineStyle','-','Marker','+')
+hold on;
+plot(t,y2,'Color','g','LineStyle','--','Marker','o')
+hold on;
+plot(t,y3,'Color','y','LineStyle','-.','Marker','s')
+
+%}
+
+%Q6
+t= -5:0.01:5;
+axis([-5 5 -1.2 1.2]);
+y1 = stepfun(t,0);
+stem(t,y1);
+grid on
+
+figure
+f = 2*pi*1;
+y2 = sawtooth(f*t,0.5);
+plot(t,y2);
+grid on
+
+figure
+f = (2*pi*0.2);
+y3 = square(f*t,50);
+plot(t,y3);
+grid on;
+
+y4 = sin(2*pi*0.5*t);
+pl
+
+
+
