@@ -1,0 +1,3 @@
+用roots，tf，zero，pole，pzmap求极零点。
+状态函数可以转系统函数方便求解，ss2zp。
+极零图，pzmap画连续系统函数，zplane画离散系统函数
