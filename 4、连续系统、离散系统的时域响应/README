@@ -1,0 +1,6 @@
+ss是state space状态空间，tf是传递函数（transmitted function？）
+initial（ss，x0，t）求零输入响应。其中ss是系统的状态空间函数，tf2ss或者直接ss（）就可以求；x0是初始状态向量，t是自变量。题目会给num和den的。
+lsim（tf，x，t）求零状态响应。tf是转移函数，x是你的输入信号函数。
+全响应把他们加起来
+阶跃信号用ones（1，length）求；脉冲信号用zeros（1，length）求，然后单独令某个位置为1就可以了。
+filter（num，den，x）求离散系统零状态响应，x是输入信号。
